@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="E:\maven\repository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar" />
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+    	<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true:是 false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/dshielddb"
+            driverClass="com.mysql.jdbc.Driver" password="123"
+            userId="root" />
+            
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.xxx.springbootfordruid.model"
+            targetProject="springbootfordruid">
+            <!-- 设置实体类的基类 -->
+            <!-- <property name="rootClass" value="java.io.Serializable" /> -->
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />    
+        </javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="mapper"
+            targetProject="springbootfordruid\src\main\resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+            
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator targetPackage="com.xxx.springbootfordruid.dao"
+            targetProject="springbootfordruid" type="XMLMAPPER">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+        
+        <!-- 指定数据库表 哪些表需要被逆向-->
+        <table schema="" tableName="s_user" domainObjectName="User" >
+        	<generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <!-- <table schema="" tableName="s_resc" domainObjectName="Resc" >
+            <generatedKey column="resc_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="s_function" domainObjectName="Function" >\
+        	<generatedKey column="function_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="s_role" domainObjectName="Role" >
+        	<generatedKey column="role_id" sqlStatement="MySql" identity="true"/>
+        </table> -->
+        <!-- <table schema="" tableName="s_role_auth" domainObjectName="RoleAuth" ></table>
+        <table schema="" tableName="dm_user_auth" domainObjectName="UserAuth" ></table>
+        <table schema="" tableName="s_user_role" domainObjectName="UserRole" ></table>
+        <table schema="" tableName="s_param" domainObjectName="SysParam" ></table>
+        <table schema="" tableName="s_property" domainObjectName="Property" >
+        	<generatedKey column="property_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="s_property_item" domainObjectName="PropertyItem" ></table>
+        <table schema="" tableName="dm_datasource" domainObjectName="Datasource" >
+            <generatedKey column="ds_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_project" domainObjectName="Project" >
+            <generatedKey column="project_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_algorithm" domainObjectName="Algorithm" >
+        	 <generatedKey column="algorithm_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_algorithm_param" domainObjectName="AlgorithmParam" ></table>
+        <table schema="" tableName="dm_project_datasource" domainObjectName="ProjectDatasource" ></table>
+        <table schema="" tableName="dm_file" domainObjectName="File" >
+            <generatedKey column="file_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_file_template" domainObjectName="FileTemplate" >
+            <generatedKey column="template_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_export_table" domainObjectName="ExportTable" >
+            <generatedKey column="table_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_file_parse_cfg" domainObjectName="FileParseConfig" >
+		</table>
+        <table schema="" tableName="dm_data_item" domainObjectName="DataItem" >
+            <generatedKey column="data_item_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_datasource_table" domainObjectName="DatasourceTable" >
+            <generatedKey column="table_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_table_relation" domainObjectName="TableRelation" ></table>
+        <table schema="" tableName="dm_config" domainObjectName="Config" >
+            <generatedKey column="config_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_param_config" domainObjectName="ParamConfig" ></table>
+        <table schema="" tableName="dm_associate_data" domainObjectName="AssociateData" >
+            <generatedKey column="associate_data_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_extract_method" domainObjectName="ExtractMethod" >
+            <generatedKey column="table_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_extract_condition" domainObjectName="ExtractCondition" >
+            <generatedKey column="condition_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_task" domainObjectName="Task" >
+            <generatedKey column="task_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_task_monitor" domainObjectName="TaskMonitor" >
+            <generatedKey column="exec_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_task_ds_detail" domainObjectName="TaskDatasourceDetail" >
+        	<generatedKey column="data_unit_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_task_unit_detail" domainObjectName="TaskUnitDetail" >
+        	<generatedKey column="data_unit_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_task_instructions" domainObjectName="TaskInstructions" >
+            <generatedKey column="cmd_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_task_detail" domainObjectName="TaskDetail" >
+            <generatedKey column="data_unit_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_project_param" domainObjectName="ProjectParam" >
+            <generatedKey column="param_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="" tableName="dm_sensitive_item" domainObjectName="SensitiveItem" >
+            <generatedKey column="item_id" sqlStatement="MySql" identity="true"/>
+        </table>
+       	<table schema="" tableName="s_logs" domainObjectName="Logs" >
+        	<generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        
+        <table schema="" tableName="dm_project_algorithm_stat" domainObjectName="ProjectAlgorithmStat" ></table>
+        <table schema="" tableName="dm_extract_method" domainObjectName="ExtractMethod" ></table>
+        <table schema="" tableName="dm_extract_condition" domainObjectName="ExtractCondition" ></table>
+        <table schema="" tableName="s_license" domainObjectName="License" ></table>
+    	<table schema="" tableName="dm_task_error_record" domainObjectName="TaskErrorRecord" >
+           <generatedKey column="error_record_id" sqlStatement="MySql" identity="true"/>
+        </table> -->
+    </context>
+</generatorConfiguration>

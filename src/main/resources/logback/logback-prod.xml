@@ -1,0 +1,25 @@
+<configuration debug="false" scan="true" scanPeriod="1 seconds">
+    <property name="log.path" value="../log/dshield.log" />
+    
+    <!-- 向文件中输出日志 -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.path}</File> <!-- 日志文件输出位置 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>dshield.%d.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        
+        <encoder>
+            <pattern>
+                %d %p (%file:%line\)- %m%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    
+    <!-- 必选节点，用来指定最基础的日志输出级别 -->
+    <root level="info">
+        <appender-ref ref="file" />
+    </root>
+    
+</configuration>

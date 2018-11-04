@@ -1,0 +1,19 @@
+<configuration debug="false" scan="true" scanPeriod="1 seconds">
+    
+    <!-- 向控制台输出日志 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    	<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+              <level>debug</level>
+        </filter>
+        <encoder>
+            <pattern>%d %p (%file:%line\)- %m%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    
+    <!-- 必选节点，用来指定最基础的日志输出级别 -->
+    <root level="debug">
+        <appender-ref ref="stdout" />
+    </root>
+    
+</configuration>
