@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xxx.springbootfordruid.service.MultiThreadService;
+import com.xxx.springbootfordruid.service.UserService;
 
 @Controller
 public class TestController {
 	private Integer num = 0;
 	@Autowired
 	private MultiThreadService multiThreadService;
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping("/helloHtml")
 	public String helloHtml(Map<String, Object> map) {
@@ -28,5 +31,9 @@ public class TestController {
 	public void testMultiThread(@RequestParam(name="filePath",required=false,defaultValue="C:/Users/HP/Desktop/testMultiThread.txt") String filePath){
 		System.out.println(num++);
 		multiThreadService.dealFile(filePath);
+	}
+	
+	public void test(){
+		
 	}
 }
