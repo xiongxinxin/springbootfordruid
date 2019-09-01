@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ServletComponentScan
 @MapperScan("com.xxx.springbootfordruid.dao")
 @EnableCaching
-//@EnableTransactionManagement
+@EnableTransactionManagement
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 public class SpringbootfordruidApplication implements CommandLineRunner{
 	
