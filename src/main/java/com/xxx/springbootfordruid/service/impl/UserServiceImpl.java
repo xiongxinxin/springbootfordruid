@@ -15,10 +15,18 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 	
 	@Override
-	@Cacheable( cacheNames="adminInfo", key = "#p0")
+	//@Cacheable( cacheNames="adminInfo", key = "#p0")
 	public User getUserById(String userId) {
+		
 		User user = userMapper.selectByPrimaryKey(Long.parseLong(userId));
-
+		System.out.println("我是业务逻辑");
+		try {
+			if(true)
+				throw new RuntimeException();
+		}catch(RuntimeException e) {
+			//e.printStackTrace();
+			throw new RuntimeException();
+		}
 		return user;
 	}
 

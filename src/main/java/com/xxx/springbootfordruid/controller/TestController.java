@@ -33,7 +33,4 @@ public class TestController {
 		multiThreadService.dealFile(filePath);
 	}
 	
-	public void test(){
-		
-	}
 }
